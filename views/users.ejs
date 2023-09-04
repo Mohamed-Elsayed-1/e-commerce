@@ -1,0 +1,45 @@
+<%- include('./parts/header.ejs')%>
+<%- include('./parts/nav-bar.ejs')%>
+
+<div class="container">
+
+    <% if(users.length === 0) { %>
+        <p class="alert alert-danger">There is no items</p>
+    <% } else { %>
+        <table align="center" width="100%" class="mt-5">
+            <thead>
+                <td>no</td>
+                <td>User Id</td>
+                <td>User Name</td>
+                <td>Phone</td>
+                <td>Address</td>
+                <td>Email</td>
+                <td>Admin</td>
+                <td></td>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < users.length; i++) { %>
+                    <tr>
+                        <td> <%= i+1 %> </td>
+                        <td><%= users[i]._id %></td>
+                        <td> <%= users[i].username %></td>
+                        <td> <%= users[i].phone %> </td>
+                        <td> <%= users[i].address %></td>
+                        <td> <%= users[i].email %> </td>
+                        <td> <%= users[i].isAdmin===true ? "Admin" : "Not Admin" %> </td>
+                        <td>
+                            <form style="display: inline-block" method="POST" action="/admin/users">
+                                <input type="hidden" name="userId" value="<%= users[i]._id %>">
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } %>
+
+</div>
+
+<%- include('./parts/footer.ejs') %>
+

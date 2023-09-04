@@ -1,0 +1,131 @@
+.landing {
+    background-image: url('/banner-3.png');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.landing .contanir {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+#our-product {
+    text-align: center;
+    margin-bottom: 80px;
+    font-weight: bold;
+}
+
+#our-product>span {
+    color: #0d6efd;
+}
+
+.our- .landing .text h5 {
+    color: var(--secondry-color);
+    font-size: 16px;
+}
+
+.landing .text h1 {
+    font-size: 60px;
+    line-height: 1.2;
+}
+
+
+.landing .text p {
+    color: #777;
+    font-style: italic;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.landing .btn {
+    position: relative;
+    padding: 15px 30px 15px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid var(--main-color);
+}
+
+.price{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+.msgError{
+    color: red;
+}
+.icon-user{
+    margin-right: 10px;
+}
+.icon-user img{
+    width: 45px;
+    height: 45px;
+}
+.product{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.product form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.product .info{
+    padding: 50px;
+}
+.product .info h3{
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.product .info p{
+    font-weight: 500;
+}
+.product .info h5{
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.container-sign{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.container-sign h3{
+    font-weight: bold;
+}
+.sign-form{
+    width: 500px;
+    padding: 40px 30px 30px;
+    margin-top: 80px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+.container-sign input,select,textarea{
+    margin-bottom: 20px;
+}
+.product-img img{
+    transition: 0.3s;
+}
+.product-img img:hover{
+    transform: scale(0.9);
+}
+
+.form-update{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-update input{
+    width: 300px;
+    margin-left: 10px;
+}
+.form-update label{
+    margin-bottom: 20px;
+}

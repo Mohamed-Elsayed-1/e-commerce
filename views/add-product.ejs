@@ -1,0 +1,58 @@
+<%- include('./parts/header.ejs')%>
+<%- include('./parts/nav-bar.ejs')%>
+<div class="container text-center container-sign">
+    <h3 class="mt-5">Add Product</h3>
+    <form action="/admin/add" method="post" enctype="multipart/form-data">
+        <input type="text" class="form-control" name="name" placeholder="Name">
+        <% let nameError=validationErrors.find(err => err.path === 'name') %>
+        <% if(nameError){ %>
+            <p class="alert alert-danger">
+                <%= nameError.msg %>
+            </p>
+        <% } %>
+        <input type="number" class="form-control" name="price" placeholder="Price">
+        <% let priceError=validationErrors.find(err => err.path === 'price') %>
+        <% if(priceError){ %>
+            <p class="alert alert-danger">
+                <%= priceError.msg %>
+            </p>
+        <% } %>
+        <textarea class="form-control" name="discription" placeholder="Discription"></textarea>
+        <% let discriptionError=validationErrors.find(err => err.path === 'discription') %>
+        <% if(discriptionError){ %>
+            <p class="alert alert-danger">
+                <%= discriptionError.msg %>
+            </p>
+        <% } %>
+        <input type="number" class="form-control" name="amount" placeholder="Amount">
+        <% let amountError=validationErrors.find(err => err.path === 'amount') %>
+        <% if(amountError){ %>
+            <p class="alert alert-danger">
+                <%= amountError.msg %>
+            </p>
+        <% } %>
+        <select name="category" class="form-control-color" style="width: 90%">
+            <option value="" selected>Choose a Category</option>
+            <option value="Dress">dress</option>
+            <option value="T-Shirt">T-Shirt</option>
+            <option value="Jacket">Jacket</option>
+            <option value="Pants">Pants</option>
+            <option value="Shoses">Shoses</option>
+        </select>
+        <% let categoryError=validationErrors.find(err => err.path === 'category') %>
+        <% if(categoryError){ %>
+            <p class="alert alert-danger">
+                <%= categoryError.msg %>
+            </p>
+        <% } %>
+        <input type="file" class="form-control" name="image" placeholder="Image">
+        <% let imageError=validationErrors.find(err => err.path === 'image') %>
+        <% if(imageError){ %>
+            <p class="alert alert-danger">
+                <%= imageError.msg %>
+            </p>
+        <% } %>
+        <input type="submit" value="Add Product" class="btn btn-outline-primary">
+    </form>
+</div>
+<%- include('./parts/footer.ejs')%>

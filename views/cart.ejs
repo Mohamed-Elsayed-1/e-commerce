@@ -1,0 +1,49 @@
+<%- include('./parts/header.ejs')%>
+<%- include('./parts/nav-bar.ejs')%>
+
+<div class="container">
+    <% if(validationErrors) {%>
+        <p class="alert alert-danger">
+            <%= validationErrors.msg %>
+        </p>
+    <%}%>
+    <% if(updateDone) {%>
+        <p class="alert alert-success">
+            <%= updateDone %>
+        </p>
+    <%}%>
+    <% if(items.length === 0) {%>
+        <p class="alert alert-danger">There is no items</p>
+    <%} else { %>
+        <table align="center" width="100%" class="mt-5">
+            <thead >
+                <th class="p-2">no</th>
+                <th class="p-2">Product Name</th>
+                <th class="p-2">Price</th>
+                <th class="p-2">Amount</th>
+                <th class="p-2">Total</th>
+            </thead>
+            <tbody>
+                <% for(let i=0; i < items.length ;i++) { %>
+                    <tr>
+                        <td class="p-2"><%= i+1 %></td>
+                        <td class="p-2"><%= items[i].name %></td>
+                        <td class="p-2"><%= items[i].price %> $</td>
+                    <form method="post">
+                        <td class="p-2"><input type="text" name="amount" value="<%= items[i].amount %>"></td>
+                        <td class="p-2"><%= items[i].price * items[i].amount %> $</td>
+                        <td class="p-2">
+                            <input type="hidden" name="cartId" value="<%= items[i]._id %>">
+                            <input type="submit" class="btn btn-outline-success" value="Save" formaction="/cart/save">
+                            <input type="submit" class="btn btn-outline-danger" value="Delete" formaction="/cart/delete">
+                            <a class="btn btn-outline-primary" href="/verify-order?order=<%= items[i]._id %>"> Order </a>
+                        </td>
+                    </form>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <%}%>
+</div>
+
+<%- include('./parts/footer.ejs')%>

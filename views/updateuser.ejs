@@ -1,0 +1,66 @@
+<%- include('./parts/header.ejs')%>
+<%- include('./parts/nav-bar.ejs')%>
+<div class="container text-center container-sign">
+    <form class="sign-form" action="/updateuser" method="post">
+        <h3 class="mb-5">Update Account</h3>
+        <%if(msg === 'Field user name is invalid'){%>
+            <div class="alert alert-danger">
+                <%= msg %>
+            </div>
+        <%}%>
+        <%if(msg === 'Field first name is invalid'){%>
+            <div class="alert alert-danger"><%= msg %></div>
+        <%}%>
+        <%if(msg === 'Field last name is invalid'){%>
+            <div class="alert alert-danger"><%= msg %></div>
+        <%}%>
+        <%if(msg === 'Field phone is invalid'){%>
+            <div class="alert alert-danger"><%= msg %></div>
+        <%}%>
+        <%if(msg === 'Field address is invalid'){%>
+            <div class="alert alert-danger"><%= msg %></div>
+        <%}%>
+        <%if(msg === 'Select password more secure'){%>
+            <div class="alert alert-danger"><%= msg %></div>
+        <%}%>
+        <%if(msg === 'Field confirmPassword is invalid'){%>
+            <div class="alert alert-danger"><%= msg %></div>
+        <%}%>
+        <div class="form-update">
+            <label for="username">User Name</label>
+            <input id="username" type="text" class="form-control" name="username" placeholder="User Name" value="<%= user[0].username %>">
+        </div>
+
+        <div class="form-update">
+            <label for="firstname">First Name</label>
+            <input id="firstname" type="text" class="form-control" name="firstname" placeholder="First Name" value="<%= user[0].firstname %>">
+        </div> 
+
+        <div class="form-update">
+            <label for="lastname">Last Name</label>
+            <input id="lastname" type="text" class="form-control" name="lastname" placeholder="Last Name" value="<%= user[0].lastname %>">
+        </div>
+
+        <div class="form-update">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="text" class="form-control" name="phone" placeholder="Phone Number" value="<%= user[0].phone %>">
+        </div>
+
+        <div class="form-update">
+            <label for="address">Address</label>
+            <input id="address" type="text" class="form-control" name="address" placeholder="Address" value="<%= user[0].address %>">
+        </div>
+        
+        <div class="form-update">
+            <label for="pass">Password</label>
+            <input id="pass" type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="form-update mb-4">
+            <label for="cpass">Confirm Password</label>
+            <input id="cpass" type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
+        </div>
+        <input type="submit" value="Save" class="btn btn-outline-primary">
+    </form>
+</div>
+
+<%- include('./parts/footer.ejs')%>
